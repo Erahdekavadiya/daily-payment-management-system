@@ -1,11 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Dashboard from '../components/Dashboard.vue'; // Assuming Dashboard.vue is in the views folder
+import Dashboard from '../components/Dashboard.vue';
+import Expenses from '../components/Expenses.vue';
+import Incomes from '../components/Incomes.vue';
 
 const routes = [
   {
-    path: '/dashboard',
+    path: '/',
     name: 'Dashboard',
     component: Dashboard,
+  },
+  {
+    path: '/expenses',
+    name: 'Expenses',
+    component: Expenses,
+  },
+  {
+    path: '/incomes',
+    name: 'Incomes',
+    component: Incomes,
   },
   // Other routes if needed
 ];
