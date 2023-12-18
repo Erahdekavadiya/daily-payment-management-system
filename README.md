@@ -1,4 +1,4 @@
-# daily-payment-management-system
+# Daily Payment Management System - Er A H Dekavadiya
 
 ## Project setup
 ```
