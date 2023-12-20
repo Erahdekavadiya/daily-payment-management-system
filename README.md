@@ -1,4 +1,4 @@
-# Daily Payment Management System
+# Daily Payment Management System - Er A H Dekavadiya
 
 Welcome to the Daily Payment Management System, a web-based application designed to assist users in efficiently managing their daily expenses and incomes. This platform provides an intuitive interface to track and analyze financial transactions conveniently.
 
@@ -57,7 +57,7 @@ For inquiries, collaborations, or project opportunities related to this system o
 - **LinkedIn:** [Er A H Dekavadiya](https://www.linkedin.com/in/er-a-h-dekavadiya)
 - **GitHub:** [Erahdekavadiya](https://github.com/Erahdekavadiya/)
 - **Website**: [www.erahdekavadiya.in](https://www.erahdekavadiya.in)
-- **Skype**: [er.a.h.dekavadiya](skype:er.a.h.dekavadiya)
+- **Skype**: [er.a.h.dekavadiya](skype:er.a.h.dekavadiya?chat)
 
 ## Collaboration and Opportunities
 
