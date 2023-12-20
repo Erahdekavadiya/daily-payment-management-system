@@ -8,6 +8,10 @@ Welcome to the Daily Payment Management System, a web-based application designed
 
 Check out the live demo [here](http://daily-payment-management-system.erahdekavadiya.in/)
 
+### Demo Login Credentials
+
+- **Username:** demo
+- **Password:** demo@123
 
 ---
 
