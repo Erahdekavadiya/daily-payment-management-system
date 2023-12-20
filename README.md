@@ -4,6 +4,13 @@ Welcome to the Daily Payment Management System, a web-based application designed
 
 ---
 
+## [Demo](http://daily-payment-management-system.erahdekavadiya.in/)
+
+Check out the live demo [here](http://daily-payment-management-system.erahdekavadiya.in/)
+
+
+---
+
 ## Overview
 
 ### Login Page
