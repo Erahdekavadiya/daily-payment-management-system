@@ -24,11 +24,43 @@ const initDB = (app) => {
 
   request.onupgradeneeded = (event) => {
     const db = event.target.result;
+
+    const generateRandomDate = (start, end) => {
+      return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+    };
+
+    const generateRandomData = (isIncome = true) => {
+      const data = [];
+      for (let i = 1; i <= 700; i++) {
+        const randomDate = generateRandomDate(new Date(2022, 0, 1), new Date());
+        const formattedDate = `${randomDate.getFullYear()}-${(randomDate.getMonth() + 1).toString().padStart(2, '0')}-${randomDate.getDate().toString().padStart(2, '0')}`;
+        const amount = Math.floor(Math.random() * 1000) + 1; // Random amount between 1 and 1000
+        const description = isIncome ? `Income ${i}` : `Expense ${i}`;
+
+        data.push({
+          id: i,
+          description,
+          amount,
+          date: formattedDate,
+        });
+      }
+      return data;
+    };
+
     if(!db.objectStoreNames.contains('incomes')){
       const incomesStore = db.createObjectStore('incomes', { keyPath: 'id', autoIncrement: true });
+      const incomes = generateRandomData(true);
+      incomes.slice().sort((a, b) => new Date(a.date) - new Date(b.date)).forEach(income => {
+        incomesStore.add(income);
+      });
     }
     if(!db.objectStoreNames.contains('expenses')){
       const expensesStore = db.createObjectStore('expenses', { keyPath: 'id', autoIncrement: true });
+
+      const expenses = generateRandomData(false);
+      expenses.slice().sort((a, b) => new Date(a.date) - new Date(b.date)).forEach(expense => {
+        expensesStore.add(expense);
+      });
     }
   };
 };

@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import { initDB } from './indexDB';
+import 'chartjs-adapter-date-fns';
 
 // Vuetify
 import 'vuetify/styles'

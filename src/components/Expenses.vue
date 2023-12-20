@@ -2,7 +2,7 @@
   <div>
     <v-data-table
         :headers="headers"
-        :items="expenses"
+        :items="filteredIncomeData"
         item-key="id"
     >
         <template v-slot:top>
@@ -40,8 +40,6 @@
                     <v-row>
                     <v-col
                         cols="12"
-                        sm="6"
-                        md="4"
                     >
                         <v-text-field
                         v-model="editedItem.description"
@@ -50,12 +48,20 @@
                     </v-col>
                     <v-col
                         cols="12"
-                        sm="6"
-                        md="4"
                     >
                         <v-text-field
                         v-model="editedItem.amount"
                         label="Amount"
+                        ></v-text-field>
+                    </v-col>
+                    
+                    <v-col
+                        cols="12"
+                    >
+                        <v-text-field
+                        v-model="editedItem.date"
+                        label="Date"
+                        type="date"
                         ></v-text-field>
                     </v-col>
                     </v-row>
@@ -93,21 +99,35 @@
             </v-card>
             </v-dialog>
         </v-toolbar>
+        <v-card class="px-4 pt-4" flat>
+        <v-row align="center">
+          <v-col cols="12" md="auto"><h4>Date Filter:</h4></v-col>
+          <v-col cols="12" md=4>
+            <v-text-field type="date" v-model="startDate" label="Start Date"></v-text-field>
+          </v-col>
+          <v-col cols="12" md=4>
+            <v-text-field type="date" v-model="endDate" label="End Date"></v-text-field>
+          </v-col>
+        </v-row>
+        </v-card>
         </template>
         <template v-slot:item.actions="{ item }">
-        <v-icon
-            size="small"
-            class="me-2"
+        <v-btn
             @click="editItem(item)"
-        >
-            mdi-pencil
-        </v-icon>
-        <v-icon
+            color="primary"
+            size="small"
+            prepend-icon="mdi-pencil"
+            class="me-2">
+            Edit
+        </v-btn>
+        <v-btn
+            color="red-darken-2"
             size="small"
             @click="deleteItem(item)"
-        >
-            mdi-delete
-        </v-icon>
+            prepend-icon="mdi-delete"
+          >
+          Delete
+        </v-btn>
         </template>
     </v-data-table>
   </div>
@@ -130,6 +150,7 @@ export default {
         { text: 'ID', title: 'ID', value: 'id' },
         { text: 'Description', title: 'Description', value: 'description' },
         { text: 'Amount', title: 'Amount', value: 'amount' },
+        { text: 'Date', title: 'Date', value: 'date' },
         { text: 'Actions', title: 'Actions', value: 'actions', sortable: false },
       ],
       expenses: [],
@@ -141,12 +162,40 @@ export default {
       defaultItem: {
         description: '',
         amount: null,
-      },      
+      }, 
+      startDate: null,
+      endDate: null,     
     };
   },
   computed: {
       formTitle () {
         return this.editedIndex === -1 ? 'New Expense' : 'Edit Expense'
+      },
+      filteredIncomeData() {
+        if (!this.startDate || !this.endDate){
+         if (this.startDate){
+          return this.expenses.filter(item => {
+            const itemDate = new Date(item.date);
+            const startDate = new Date(this.startDate);
+            return itemDate >= startDate;
+          });
+         }
+         if (this.endDate){
+          return this.expenses.filter(item => {
+            const itemDate = new Date(item.date);
+            const endDate = new Date(this.endDate);
+            return itemDate <= endDate;
+          });
+         }
+         return this.expenses;
+        }else{
+          return this.expenses.filter(item => {
+            const itemDate = new Date(item.date);
+            const startDate = new Date(this.startDate);
+            const endDate = new Date(this.endDate);
+            return itemDate >= startDate && itemDate <= endDate;
+          });
+        }
       },
     },
     watch: {
