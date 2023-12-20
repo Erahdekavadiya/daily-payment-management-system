@@ -57,7 +57,7 @@ For inquiries, collaborations, or project opportunities related to this system o
 - **LinkedIn:** [Er A H Dekavadiya](https://www.linkedin.com/in/er-a-h-dekavadiya)
 - **GitHub:** [Erahdekavadiya](https://github.com/Erahdekavadiya/)
 - **Website**: [www.erahdekavadiya.in](https://www.erahdekavadiya.in)
-- **Skype**: [er.a.h.dekavadiya](skype:er.a.h.dekavadiya?chat)
+- **Skype**: [er.a.h.dekavadiya](https://join.skype.com/invite/d6mpdC4E7wmA)
 
 ## Collaboration and Opportunities
 
